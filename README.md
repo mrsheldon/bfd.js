@@ -1,4 +1,4 @@
-(https://nodei.co/npm/jstrip.png?downloads=true&downloadRank=true&stars=true)
+[](https://nodei.co/npm/jstrip.png?downloads=true&downloadRank=true&stars=true)
 
 # Getting Started
 Simply Run `npm install bfd.js`
