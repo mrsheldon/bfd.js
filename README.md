@@ -6,9 +6,9 @@ Simply Run `npm install bfd.js`
 ```javascript
 const BFD = require('bfd.js');
 
-const BFDClient = new BFD('Bot ID', 'User Token');
+const BFDClient = new BFD('Bot ID', 'Bot Token');
 
-BFDClient.updateServerCount(client.guilds.size)
+BFDClient.update(client.guilds.size)
 console.log("Server Count Updated")
 
 BFDClient.getInfo('365958655926992896').then(bot => {
