@@ -14,22 +14,6 @@ class Client {
         snekfetch.post(this._baseURL + '/bots/' + this._id, {headers: { 'content-type': 'application/json', 'authorization': this._token }, data: {server_count: serverCount } })
 
         }
-    getInfo(id) {
-         if (typeof id !== 'string') throw new TypeError('Bot ID must be a string');
-        return new Promise((resolve, reject) => {
-            snekfetch.get(this._baseURL + '/bots/' + id).then((bot) => {
-                resolve(bot.body);    
-            })
-        });
-    }
-    getCurrentBot() {
-        if (typeof this._id !== 'string') throw new TypeError('Bot ID must be a string');
-        return new Promise((resolve, reject) => {
-            snekfetch.get(this._baseURL + '/bots/' + this._id).then((bot) => {
-                resolve(bot.body);
-            })
-        });
-    }
 }
 
 
