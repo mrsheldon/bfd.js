@@ -1,5 +1,4 @@
-[](https://nodei.co/npm/bfd.js.png?downloads=true&downloadRank=true&stars=true)
-
+[![NPM](https://nodei.co/npm/bfd.js.png)](https://nodei.co/npm/<package>/)
 # Getting Started
 Simply Run `npm install bfd.js`
 
