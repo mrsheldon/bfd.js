@@ -5,7 +5,7 @@ Simply Run `npm install bfd.js`
 
 # Example
 ```javascript
-onst BFD = require('bfd.js');
+const BFD = require('bfd.js');
 const BFDClient = new BFD('Bot ID', 'Bot Token');
 
 BFDClient.update(client.guilds.size)
