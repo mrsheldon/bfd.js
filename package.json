@@ -1,7 +1,7 @@
 {
 	"name": "bfd.js",
-	"version": "1.0.1",
-	"description": "Libary for sending infomation to the botsfordiscord.com api.",
+	"version": "1.0.6",
+	"description": "Lib for sending infomation to the botsfordiscord.com api.",
 	"main": "src/index.js",
 	"author": "Roy Lupo",
 	"dependencies": {
