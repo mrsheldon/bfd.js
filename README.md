@@ -9,7 +9,7 @@ Simply Run `npm install bfd.js`
 ```javascript
 const BFD = require("bfd.js");
 const bfd = new BFD('Your Token');
-bfd.postCount('your server count', 'your bot id');
+bfd.postStats('your server count', 'your bot id');
 ```
 
 **Example of getting bot info**
