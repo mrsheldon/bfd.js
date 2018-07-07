@@ -1,8 +1,8 @@
 {
   "name": "bfd.js",
-  "version": "3.2.5",
+  "version": "4.0.3",
   "description": "A botsfordiscord.com API wrapper",
-  "main": "src/index.js",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MrSheldon/bfd.js.git"
