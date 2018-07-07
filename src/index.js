@@ -11,8 +11,7 @@ class Client {
 
     postStats(serverCount) {
         if (typeof serverCount !== 'number' && !(serverCount instanceof Array)) throw new TypeError('Server count is not a number.');
-        snekfetch.post(this._baseURL + '/bots/' + this._id, {headers: { 'content-type': 'application/json', 'authorization': this._token }, data: {count: serverCount } })
-
+        snekfetch.post(this._baseURL + '/bots/' + this._id, {headers: { 'content-type': 'application/json', 'authorization': this._token }, data: {server_count: serverCount } })
         }
 
     getInfo(id) {
