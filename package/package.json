@@ -1,0 +1,19 @@
+{
+  "name": "bfd.js",
+  "version": "4.0.3",
+  "description": "A botsfordiscord.com API wrapper",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrSheldon/bfd.js.git"
+  },
+  "keywords": [
+    "BotsForDiscord"
+  ],
+  "author": "MrSheldon <mrsheldon@luki.xyz> (mrsheldon.me)",
+  "license": "MIT",
+  "homepage": "https://github.com/MrSheldon/bfd.js#readme",
+  "dependencies": {
+    "snekfetch": "^4.0.4"
+  }
+}
