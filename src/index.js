@@ -1,36 +1,68 @@
 const snekfetch = require('snekfetch');
+const API = 'https://botsfordiscord.com/api/v1/';
 
-class Client {
-    constructor(id, token) {
-        if (typeof token !== 'string') throw new TypeError('The bot token must be a string!');
-        if (typeof id !== 'string') throw new TypeError('The bot ID must be a string!');
-        this._baseURL = 'https://botsfordiscord.com/api/v1';
-        this._token = token;
-        this._id = id;
+class BFDAPI {
+  constructor(token, client) {
+    this.token = token;
+    if (client) {
+      this.client = client;
+      client.on('ready', () => {
+        this.postStats();
+        setInterval(() => {
+          this.postStats();
+        }, 1800000);
+      });
     }
+  }
 
-    postStats(serverCount) {
-        if (typeof serverCount !== 'number' && !(serverCount instanceof Array)) throw new TypeError('Server count is not a number.');
-        snekfetch.post(this._baseURL + '/bots/' + this._id, {headers: { 'content-type': 'application/json', 'authorization': this._token }, data: {server_count: serverCount } })
-        }
+  _request(method, endpoint, data, auth) {
+    const request = snekfetch[method](API + endpoint);
+    if (method === 'post' && data) request.send(data);
+    if (method === 'get' && data) request.query(data);
+    if (auth) request.set({ Authorization: this.token });
+    return request;
+  }
 
-    getInfo(id) {
-        if (typeof id !== 'string') throw new TypeError('Bot ID must be a string');
-        return new Promise((resolve, reject) => {
-            snekfetch.get(this._baseURL + '/bots/' + id).then((bot) => {
-                resolve(bot.body);    
-            })
-        });
+  async postStats(serverCount, id) {
+    if (!this.token) throw new Error('This function requires a token to be set');
+    if (!serverCount && !this.client) throw new Error('postStats requires 2 argument');
+    if (!id) throw new Error('Please enter a bot id for posting count');
+    const data = {};
+    if (serverCount) {
+      data.server_count = serverCount;
+    } else {
+      data.server_count = this.client.guilds.size;
     }
+    const response = await this._request('post', `bots/${id}`, data, true);
+    return response.body;
+  }
 
-    getCurrentBot() {
-        if (typeof this._id !== 'string') throw new TypeError('Bot ID must be a string');
-        return new Promise((resolve, reject) => {
-            snekfetch.get(this._baseURL + '/bots/' + this._id).then((bot) => {
-                resolve(bot.body);
-            })
-        });
+  async getBot(id) {
+    if (!id && !this.client) throw new Error('getBot requires id as argument');
+    if (!id) id = this.client.user.id;
+    const response = await this._request('get', `bots/${id}`);
+    const info = JSON.parse(response.text);
+    return info;
+  }
+
+  async getBotEmbed(id, size) {
+    if (!id && !this.client) throw new Error('getBotEmbed requires id as argument');
+    if (!id) id = this.client.user.id;
+    const siz = `?width=${size}`
+    if (!size) {
+      size = "300";
     }
+    return this._request('get', `bots/${id}/embed${siz}`);
+  }
+
+  async isVerified(id) {
+    if (!id) throw new Error('You must provide an bot id')
+    if (!this.token) throw new Error('This function requires a token to be set');
+    const response = await this._request('get', `bots/${id}`);
+    const info = JSON.parse(response.text);
+    if(!info.verified) return 'false';
+    if(info.verified) return 'true';
+  }
 }
 
-module.exports = Client;
+module.exports = BFDAPI;

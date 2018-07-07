@@ -3,36 +3,38 @@
 # Getting Started
 Simply Run `npm install bfd.js`
 
-# Example
-Post server count
+## Usage
+
+**Example of posting a bots servercount to the API**
 ```javascript
-const BFD = require('bfd.js');
-
-const BFDClient = new BFD('Bot ID', 'Bot Token');
-
-BFDClient.postStats(client.guilds.size)
-console.log("Server Count Updated")
+const BFD = require("bfd.js");
+const bfd = new BFD('Your Token');
+bfd.postCount('your server count', 'your bot id');
 ```
-Get bot info
+
+**Example of getting bot info**
+
 ```javascript
-const BFD = require('bfd.js');
-const BFDClient = new BFD('Bot ID', 'Bot Token');
-
-BFDClient.getInfo('365958655926992896').then(bot => {
-
-    console.log("Current Bot Username: "+ bot.username),
-    console.log("Current Bot ID: "+ bot.id),
-})
+const BFD = require("bfd.js");
+const bfd = new BFD('Your Token');
+bfd.getBot('bot-id');
 ```
-Get currect bot info
+*Note: The wrapper automatically parses the JSON data!*
+
+**Example of getting bot widget**
+
 ```javascript
-const BFD = require('bfd.js');
-const BFDClient = new BFD('Bot ID', 'Bot Token');
+const BFD = require("bfd.js");
+const bfd = new BFD('Your Token');
+bfd.getBotEmbed('bot-id');
+```
 
-DBGClient.getCurrentBot().then(bot => {
+**The Api Wrapper Supports Getting Verfied Bot! If bot not verfied it will return false if verifed returns true**
 
-    console.log("Current Bot Username: "+ bot.username),
-    console.log("Current Bot ID: "+ bot.discordid),
+```javascript
+const BFD = require("bfd.js");
+const bfd = new BFD('Your Token');
+const info = await bfd.isVerified('Bot ID (that will we get verifed or not)');
 
-}) 
+console.log(info) //now it will log to console If bot not verfied false , If verfiyed true 
 ```
