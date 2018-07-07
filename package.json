@@ -1,10 +1,19 @@
 {
-	"name": "bfd.js",
-	"version": "2.1.2",
-	"description": "Lib to interact with the botsfordiscord.com API",
-	"main": "src/index.js",
-	"author": "Roy Lupo",
-	"dependencies": {
-		"snekfetch": "^3.6.4"
-	}
+  "name": "bfd.js",
+  "version": "3.0.0",
+  "description": "A botsfordiscord.com API wrapper",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrSheldon/bfd.js.git"
+  },
+  "keywords": [
+    "BotsForDiscord"
+  ],
+  "author": "MrSheldon <mrsheldon@luki.xyz> (mrsheldon.me)",
+  "license": "MIT",
+  "homepage": "https://github.com/MrSheldon/bfd.js#readme",
+  "dependencies": {
+    "snekfetch": "^4.0.4"
+  }
 }
