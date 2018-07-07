@@ -18,7 +18,7 @@ Get bot info
 const BFD = require('bfd.js');
 const BFDClient = new BFD('Bot ID', 'Bot Token');
 
-DBGClient.getInfo('365958655926992896').then(bot => {
+BFDClient.getInfo('365958655926992896').then(bot => {
 
     console.log("Current Bot Username: "+ bot.username),
     console.log("Current Bot ID: "+ bot.id),
@@ -28,7 +28,8 @@ Get currect bot info
 ```javascript
 const BFD = require('bfd.js');
 const BFDClient = new BFD('Bot ID', 'Bot Token');
- DBGClient.getCurrentBot().then(bot => {
+
+DBGClient.getCurrentBot().then(bot => {
 
     console.log("Current Bot Username: "+ bot.username),
     console.log("Current Bot ID: "+ bot.discordid),
