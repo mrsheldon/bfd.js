@@ -1,7 +1,7 @@
 [![NPM](https://nodei.co/npm/bfd.js.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/bfd.js/)
 
 # Getting Started
-Simply Run `npm install bfd.js`
+Simply Run `npm install bfd.js@4.1.4`
 
 ## Usage
 
@@ -34,7 +34,7 @@ bfd.getBotEmbed('bot-id');
 ```javascript
 const BFD = require("bfd.js");
 const bfd = new BFD('Your Token');
-const info = await bfd.isVerified('Bot ID (that will we get verifed or not)');
+const info = await bfd.isVerified('Bot ID');
 
-console.log(info) //now it will log to console If bot not verfied false , If verfiyed true 
+console.log(info)  
 ```
