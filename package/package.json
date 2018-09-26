@@ -1,6 +1,6 @@
 {
   "name": "bfd.js",
-  "version": "4.1.4",
+  "version": "5.0.0",
   "description": "A botsfordiscord.com API wrapper",
   "main": "index.js",
   "repository": {
